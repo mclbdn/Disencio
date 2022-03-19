@@ -1,5 +1,8 @@
 import styled, { keyframes } from "styled-components";
 import { useRef, useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleDown, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 
 const Section = styled.section`
   height: 100vh;
@@ -18,11 +21,19 @@ const MoveRightToLeft = keyframes`
 
 const AnimatedTextWrapper = styled.div`
   position: absolute;
-  top: 50%;
+  top: 45%;
   width: 800px;
-  height: 100%;
+  height: fit-content;
   transform: translateX(100%);
   animation: ${MoveRightToLeft} 10s linear infinite;
+
+  @media (min-width: 744px) {
+    width: 1300px;
+  }
+
+  @media (min-width: 1440px) {
+    width: 1700px;
+  }
 `;
 
 const AnimatedText = styled.h4`
@@ -37,6 +48,35 @@ const AnimatedText = styled.h4`
   -webkit-text-fill-color: transparent;
   -moz-background-clip: text;
   -moz-text-fill-color: transparent;
+
+  @media (min-width: 744px) {
+    font-size: 45px;
+  }
+
+  @media (min-width: 1440px) {
+    font-size: 55px;
+  }
+`;
+
+const NuestrosServiciosParagraph = styled.p`
+  font-size: 16px;
+  font-weight: 300;
+  position: absolute;
+  top: 49%;
+  width: 100%;
+  text-align: center;
+  color: var(--off-white-color);
+  opacity: 0.6;
+
+  @media (min-width: 744px) {
+    font-size: 20px;
+    top: 54%;
+  }
+
+  @media (min-width: 1440px) {
+    font-size: 25px;
+    top: 53%;
+  }
 `;
 
 const FirstAnimatedText = () => {
@@ -50,7 +90,7 @@ const FirstAnimatedText = () => {
       rootMargin: "-10px",
     };
     const observer = new IntersectionObserver((entries) => {
-        console.log("Hero");
+      console.log("Hero");
       const entry = entries[0];
       if (entry.isIntersecting) {
         setIsVisible(true);
@@ -63,12 +103,22 @@ const FirstAnimatedText = () => {
   }, []);
 
   return (
-    <Section ref={myRef} style={{opacity: isVisible ? 1 : 0, transition: "opacity 2s"}}>
+    <Section
+      ref={myRef}
+      style={{ opacity: isVisible ? 1 : 0, transition: "opacity 2s" }}
+    >
       <AnimatedTextWrapper>
         <AnimatedText>
           Sabemos que tan difícil es ganar en un mercado abarrotado.
         </AnimatedText>
       </AnimatedTextWrapper>
+      <Link href="/" passHref>
+        <a>
+          <NuestrosServiciosParagraph>
+            nuestros servicios <FontAwesomeIcon icon={faChevronDown} />
+          </NuestrosServiciosParagraph>
+        </a>
+      </Link>
     </Section>
   );
 };

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import FirstAnimatedText from "../components/FirstAnimatedText";
 import Hero from "../components/Hero";
+import Services from "../components/Services";
 
 const Div = styled.div`
   background: linear-gradient(
@@ -15,6 +16,7 @@ export default function Home() {
     <Div>
       <Hero />
       <FirstAnimatedText />
+      <Services />
     </Div>
   );
 }
