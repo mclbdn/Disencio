@@ -50,6 +50,7 @@ const FirstAnimatedText = () => {
       rootMargin: "-10px",
     };
     const observer = new IntersectionObserver((entries) => {
+        console.log("Hero");
       const entry = entries[0];
       if (entry.isIntersecting) {
         setIsVisible(true);
@@ -62,17 +63,7 @@ const FirstAnimatedText = () => {
   }, []);
 
   return (
-    <Section ref={myRef}>
-      {/* <h2
-        style={{
-          position: "absolute",
-          top: "300px",
-          opacity: isVisible ? 1 : 0,
-          transition: "opacity 10s",
-        }}
-      >
-        Hello
-      </h2> */}
+    <Section ref={myRef} style={{opacity: isVisible ? 1 : 0, transition: "opacity 2s"}}>
       <AnimatedTextWrapper>
         <AnimatedText>
           Sabemos que tan difícil es ganar en un mercado abarrotado.

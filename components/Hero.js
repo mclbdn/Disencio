@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
+import { useRef, useEffect, useState } from "react";
 
 const Section = styled.section`
   height: 100vh;
@@ -277,10 +278,34 @@ const VamosBtnWrapper = styled.div`
   }
 `;
 
-
 const Hero = () => {
+  const ref = useRef();
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      threshold: 0,
+      rootMargin: "-10px",
+    };
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+        observer.unobserve(ref.current);
+      }
+    }, observerOptions);
+
+    observer.observe(ref.current);
+
+    return () => observer.unobserve(ref.current);
+  }, []);
+
   return (
-    <Section>
+    <Section
+      ref={ref}
+      style={{ opacity: isVisible ? 1 : 0, transition: "opacity 2s" }}
+    >
       <Nav>
         <LogoDiv>
           <Link href="/" passHref>
