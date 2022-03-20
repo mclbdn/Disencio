@@ -87,7 +87,7 @@ const FirstAnimatedText = () => {
     const observerOptions = {
       root: null,
       threshold: 0,
-      rootMargin: "-10px",
+      rootMargin: "-40px",
     };
     const observer = new IntersectionObserver((entries) => {
       console.log("Hero");

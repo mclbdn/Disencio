@@ -304,7 +304,7 @@ const Hero = () => {
   return (
     <Section
       ref={ref}
-      style={{ opacity: isVisible ? 1 : 0, transition: "opacity 2s" }}
+      style={{ opacity: isVisible ? 1 : 0, transition: "opacity 3s" }}
     >
       <Nav>
         <LogoDiv>
