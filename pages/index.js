@@ -1,6 +1,8 @@
 import styled from "styled-components";
+import Company from "../components/Company";
 import FirstAnimatedText from "../components/FirstAnimatedText";
 import Hero from "../components/Hero";
+import SecondAnimatedText from "../components/SecondAnimatedText";
 import Services from "../components/Services";
 
 const Div = styled.div`
@@ -17,6 +19,8 @@ export default function Home() {
       <Hero />
       <FirstAnimatedText />
       <Services />
+      <SecondAnimatedText />
+      <Company />
     </Div>
   );
 }

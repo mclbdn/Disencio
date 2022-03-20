@@ -40,8 +40,13 @@ const AnimatedText = styled.h4`
   font-family: "Roboto Slab", serif;
   font-size: 25px;
   font-weight: 600;
-  background-color: var(--pink-color);
-  background-image: linear-gradient(91.05deg, #fc0085 22.62%, #0dfffc 65.23%);
+  background-color: var(--light-blue-color);
+  background-image: linear-gradient(
+    270.27deg,
+    #fc0085 46.2%,
+    #9300bf 77.05%,
+    #0dfffc 98.56%
+  );
   background-size: 100%;
   background-repeat: repeat;
   -webkit-background-clip: text;
@@ -79,7 +84,7 @@ const NuestrosServiciosParagraph = styled.p`
   }
 `;
 
-const FirstAnimatedText = () => {
+const SecondAnimatedText = () => {
   const myRef = useRef();
   const [isVisible, setIsVisible] = useState(false);
 
@@ -108,14 +113,12 @@ const FirstAnimatedText = () => {
       style={{ opacity: isVisible ? 1 : 0, transition: "opacity 2s" }}
     >
       <AnimatedTextWrapper>
-        <AnimatedText>
-          Sabemos que tan difícil es ganar en un mercado abarrotado.
-        </AnimatedText>
+        <AnimatedText>Nuestros valores nos diferencian del resto.</AnimatedText>
       </AnimatedTextWrapper>
       <Link href="/" passHref>
         <a>
           <NuestrosServiciosParagraph>
-            nuestros servicios <FontAwesomeIcon icon={faChevronDown} />
+            conoce nuestra compañía <FontAwesomeIcon icon={faChevronDown} />
           </NuestrosServiciosParagraph>
         </a>
       </Link>
@@ -123,4 +126,4 @@ const FirstAnimatedText = () => {
   );
 };
 
-export default FirstAnimatedText;
+export default SecondAnimatedText;

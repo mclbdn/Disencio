@@ -3,7 +3,6 @@ import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 
 const Section = styled.section`
-  // height: 100vh;
   position: relative;
 `;
 
