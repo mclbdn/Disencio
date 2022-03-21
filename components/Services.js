@@ -12,6 +12,7 @@ const H2 = styled.h2`
   font-size: 25px;
   text-align: center;
   margin-bottom: 40px;
+  line-height: 100%;
 
   @media (min-width: 744px) {
     font-size: 30px;
@@ -31,6 +32,7 @@ const H3 = styled.h3`
   margin-left: 20px;
   margin-bottom: 20px;
   position: relative;
+  line-height: 100%;
 
   &:after {
     bottom: -10px;
@@ -67,7 +69,7 @@ const H3 = styled.h3`
 const ServiceDescription = styled.p`
   font-size: 16px;
   font-weight: 300;
-  line-height: 163.2%;
+  line-height: 150%;
   margin-left: 20px;
   margin-right: 20px;
 

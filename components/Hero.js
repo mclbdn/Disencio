@@ -129,7 +129,7 @@ const Span = styled.span`
 
 const Paragraph = styled.p`
   font-size: 16px;
-  line-height: 155%;
+  line-height: 150%;
   margin: 15px 97px 30px 20px;
 
   @media (min-width: 744px) {
