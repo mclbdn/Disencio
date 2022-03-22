@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Company from "../components/Company";
 import Faq from "../components/Faq";
 import FirstAnimatedText from "../components/FirstAnimatedText";
+import FourthAnimatedText from "../components/FourthAnimatedText";
 import Hero from "../components/Hero";
 import SecondAnimatedText from "../components/SecondAnimatedText";
 import Services from "../components/Services";
@@ -25,6 +26,7 @@ export default function Home() {
       <Company />
       <ThirdAnimatedText />
       <Faq />
+      <FourthAnimatedText />
     </Div>
   );
 }

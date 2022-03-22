@@ -147,8 +147,8 @@ const Paragraph = styled.p`
 
 const CTAContainer = styled.div`
   position: relative;
-  width: 117px;
-  height: 50px;
+  // width: 117px;
+  // height: 50px;
   margin-left: 20px;
 
   @media (min-width: 744px) {
@@ -268,13 +268,94 @@ const StyledLink = styled.a`
   }
 `;
 
-const VamosBtnWrapper = styled.div`
+const CTABtn = styled.div`
+  width: 100%;
+`;
+
+const AnchorSpan = styled.span`
+  background-color: #000;
+  color: var(--off-white-color);
+  display: inline-block;
+  padding: 16px 16px;
+
+  border-radius: 100px;
   position: relative;
-  width: 100px;
-  height: 52px;
+  z-index: 2;
+
+  @media (min-width: 740px) {
+    padding: 12px 19px;
+  }
 
   @media (min-width: 1440px) {
-    width: 139px;
+    padding: ${(props) => props.padding};
+  }
+`;
+
+const CTAAnchor = styled.a`
+  font-size: 18px;
+  line-height: 100%;
+  font-weight: 700;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  border-radius: 100px;
+  background: linear-gradient(
+    83.78deg,
+    #fc0085 1.04%,
+    #009dff 50.07%,
+    #0dfffc 92.88%
+  );
+  padding: 1px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  border: 0;
+  text-transform: inherit;
+  letter-spacing: 0;
+  overflow: visible !important;
+  text-decoration: none;
+
+  &:before {
+    content: "";
+    background: linear-gradient(
+      83.78deg,
+      #fc0085 1.04%,
+      #009dff 50.07%,
+      #0dfffc 92.88%
+    );
+    position: absolute;
+    top: 8px;
+    left: 0;
+    background-size: 300%;
+    z-index: -1;
+    -webkit-filter: blur(6px);
+    filter: blur(6px);
+    width: 100%;
+    height: 100%;
+    -webkit-animation: glowing 50s linear infinite;
+    animation: glowing 50s linear infinite;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+    transition-property: opacity;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+    border-radius: 100px;
+    display: block;
+  }
+
+  &:hover::before {
+    background: linear-gradient(
+      83.78deg,
+      #fc0085 1.04%,
+      #009dff 50.07%,
+      #0dfffc 92.88%
+    );
+    opacity: 0.35;
+  }
+
+  @media (min-width: 1440px) {
+    font-size: 22px;
   }
 `;
 
@@ -337,19 +418,13 @@ const Hero = () => {
             </Link>
           </LI>
           <LI>
-            <Link href="/" passHref>
-              <a>
-                <VamosBtnWrapper>
-                  <Image
-                    layout="fill"
-                    src="/images/vamos-btn.svg"
-                    alt="Go to contact button"
-                    objectFit="contain"
-                    draggable="false"
-                  />
-                </VamosBtnWrapper>
-              </a>
-            </Link>
+            <CTABtn>
+              <Link href="/" passHref>
+                <CTAAnchor>
+                  <AnchorSpan padding="13px 33px">Vamos!</AnchorSpan>
+                </CTAAnchor>
+              </Link>
+            </CTABtn>
           </LI>
         </UL>
         <HamburgerMenuWrapper>
@@ -370,16 +445,13 @@ const Hero = () => {
         presencia en línea, nuestra pasión es crear excelencia digital.
       </Paragraph>
       <CTAContainer>
-        <Link href="/" passHref>
-          <a>
-            <Image
-              layout="fill"
-              src="/images/cta-btn.svg"
-              objectFit="contain"
-              draggable="false"
-            />
-          </a>
-        </Link>
+        <CTABtn>
+          <Link href="/" passHref>
+            <CTAAnchor>
+              <AnchorSpan padding="13.5px 18px">Lo quiero!</AnchorSpan>
+            </CTAAnchor>
+          </Link>
+        </CTABtn>
       </CTAContainer>
       <AnglesDownContainerWrapper>
         <AnglesDownContainer>
