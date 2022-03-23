@@ -1,5 +1,7 @@
 import styled, { keyframes } from "styled-components";
 import { useRef, useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPhone } from "@fortawesome/free-solid-svg-icons";
 
 const Section = styled.section`
   position: relative;
@@ -32,6 +34,28 @@ const H3 = styled.h3`
   margin-bottom: 20px;
   position: relative;
   line-height: 100%;
+
+  @media (min-width: 740px) {
+    font-size: 25px;
+    margin-left: 40px;
+    margin-bottom: 36px;
+  }
+
+  @media (min-width: 1440px) {
+    font-size: 30px;
+    margin-bottom: 40px;
+  }
+`;
+
+const ParagraphAndPhone = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+
+  @media (min-width: 740px) {
+    margin-left: 0px;
+    flex: 1;
+  }
 `;
 
 const Paragraph = styled.p`
@@ -41,6 +65,37 @@ const Paragraph = styled.p`
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 40px;
+
+  @media (min-width: 740px) {
+    font-size: 20px;
+    margin: 0 30px 0 0;
+    flex: 1;
+  }
+`;
+
+const Paragraph2 = styled.p`
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 150%;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+
+  @media (min-width: 740px) {
+    font-size: 20px;
+    margin: 0 30px 0 0;
+    flex: 1;
+  }
+`;
+
+const Paragraph3 = styled.p`
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 150%;
+
+  @media (min-width: 740px) {
+    font-size: 20px;
+  }
 `;
 
 const Animation = keyframes`
@@ -55,12 +110,21 @@ const Animation = keyframes`
   }
 `;
 
-const Form = styled.form``;
+const Form = styled.form`
+  @media (min-width: 740px) {
+    flex: 1;
+  }
+`;
 
 const LabelAndInput = styled.div`
   border-bottom: 1px solid var(--off-white-color);
   padding-bottom: 10px;
-  margin: 0 20px 20px;
+  margin: 0 20px 10px;
+
+  @media (min-width: 740px) {
+    padding-bottom: 18px;
+    margin: 0 0 18px;
+  }
 `;
 
 const TextArea = styled.textarea`
@@ -106,6 +170,128 @@ const Input = styled.input`
   }
 `;
 
+const CTAContainer = styled.div`
+  position: relative;
+  margin: 0 auto 40px;
+
+  @media (min-width: 744px) {
+    width: 185px;
+    height: 65px;
+    margin: 0 0 40px;
+  }
+
+  @media (min-width: 1440px) {
+  }
+`;
+
+const CTABtn = styled.button`
+  width: 100%;
+  height: 100%;
+  outline: none;
+  padding: 0;
+  border: 0;
+  background: transparent;
+`;
+
+const AnchorSpan = styled.span`
+  background-color: #000;
+  color: var(--off-white-color);
+  display: inline-block;
+  padding: 16px 16px;
+
+  border-radius: 100px;
+  position: relative;
+  z-index: 2;
+
+  @media (min-width: 740px) {
+    padding: 18px 13px;
+  }
+
+  @media (min-width: 1440px) {
+    padding: ${(props) => props.padding};
+  }
+`;
+
+const CTAAnchor = styled.p`
+  font-size: 18px;
+  line-height: 100%;
+  font-weight: 700;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  border-radius: 100px;
+  background: linear-gradient(
+    83.78deg,
+    #fc0085 1.04%,
+    #009dff 50.07%,
+    #0dfffc 92.88%
+  );
+  padding: 1px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  border: 0;
+  text-transform: inherit;
+  letter-spacing: 0;
+  overflow: visible !important;
+  text-decoration: none;
+
+  &:before {
+    content: "";
+    background: linear-gradient(
+      83.78deg,
+      #fc0085 1.04%,
+      #009dff 50.07%,
+      #0dfffc 92.88%
+    );
+    position: absolute;
+    top: 8px;
+    left: 0;
+    background-size: 300%;
+    z-index: -1;
+    -webkit-filter: blur(6px);
+    filter: blur(6px);
+    width: 100%;
+    height: 100%;
+    -webkit-animation: glowing 50s linear infinite;
+    animation: glowing 50s linear infinite;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+    transition-property: opacity;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+    border-radius: 100px;
+    display: block;
+  }
+
+  &:hover::before {
+    background: linear-gradient(
+      83.78deg,
+      #fc0085 1.04%,
+      #009dff 50.07%,
+      #0dfffc 92.88%
+    );
+    opacity: 0.35;
+  }
+
+  @media (min-width: 740px) {
+    font-size: 22px;
+  }
+`;
+
+const TopDiv = styled.div`
+  @media (min-width: 740px) {
+    display: flex;
+    margin: 0 40px;
+  }
+`;
+const BottomDiv = styled.div`
+  @media (min-width: 740px) {
+    display: flex;
+    margin: 0 40px;
+`;
+
 const Contact = () => {
   const ref = useRef();
   const [isVisible, setIsVisible] = useState(false);
@@ -135,59 +321,77 @@ const Contact = () => {
       style={{ opacity: isVisible ? 1 : 0, transition: "opacity 2.5s" }}
     >
       <H2>Contacto</H2>
+
       <H3>¿Cómo te podemos ayudar?</H3>
-      <Paragraph>
-        Rellena el formulario y te contactarémos en un máximo de 24 horas.
-      </Paragraph>
-      <Form>
-        <LabelAndInput>
-          <Label htmlFor="nombre">Nombre *</Label>
-          <Input
-            id="nombre"
-            name="nombre"
-            type="text"
-            placeholder="Nombre *"
-            required
-          ></Input>
-        </LabelAndInput>
-        <LabelAndInput>
-          <Label htmlFor="apellido">Apellido *</Label>
-          <Input
-            id="apellido"
-            name="apellido"
-            type="text"
-            placeholder="Apellido *"
-            required
-          ></Input>
-        </LabelAndInput>
-        <LabelAndInput>
-          <Label htmlFor="correo">Correo electrónico *</Label>
-          <Input
-            id="correo"
-            name="correo"
-            type="email"
-            placeholder="Correo electrónico *"
-            required
-          ></Input>
-        </LabelAndInput>
-        <LabelAndInput>
-          <Label htmlFor="celular">Celular </Label>
-          <Input
-            id="celular"
-            name="celular"
-            type="text"
-            placeholder="Celular "
-          ></Input>
-        </LabelAndInput>
-        <LabelAndInput>
-          <Label htmlFor="mensaje">¿Algo más que debamos saber?</Label>
-          <TextArea
-            id="mensaje"
-            name="mensaje"
-            placeholder="¿Algo más que debamos saber?"
-          ></TextArea>
-        </LabelAndInput>
-      </Form>
+      <TopDiv>
+        <Paragraph>
+          Rellena el formulario y te contactarémos en un máximo de 24 horas.
+        </Paragraph>
+
+        <Form>
+          <LabelAndInput>
+            <Label htmlFor="nombre">Nombre *</Label>
+            <Input
+              id="nombre"
+              name="nombre"
+              type="text"
+              placeholder="Nombre *"
+              required
+            ></Input>
+          </LabelAndInput>
+          <LabelAndInput>
+            <Label htmlFor="apellido">Apellido *</Label>
+            <Input
+              id="apellido"
+              name="apellido"
+              type="text"
+              placeholder="Apellido *"
+              required
+            ></Input>
+          </LabelAndInput>
+          <LabelAndInput>
+            <Label htmlFor="correo">Correo electrónico *</Label>
+            <Input
+              id="correo"
+              name="correo"
+              type="email"
+              placeholder="Correo electrónico *"
+              required
+            ></Input>
+          </LabelAndInput>
+          <LabelAndInput>
+            <Label htmlFor="celular">Celular </Label>
+            <Input
+              id="celular"
+              name="celular"
+              type="text"
+              placeholder="Celular "
+            ></Input>
+          </LabelAndInput>
+          <LabelAndInput>
+            <Label htmlFor="mensaje">¿Algo más que debamos saber?</Label>
+            <TextArea
+              id="mensaje"
+              name="mensaje"
+              placeholder="¿Algo más que debamos saber?"
+            ></TextArea>
+          </LabelAndInput>
+          <CTAContainer>
+            <CTABtn type="submit">
+              <CTAAnchor>
+                <AnchorSpan padding="13.5px 14px">Manda mensaje</AnchorSpan>
+              </CTAAnchor>
+            </CTABtn>
+          </CTAContainer>
+        </Form>
+      </TopDiv>
+      <BottomDiv>
+        <Paragraph2>¿No eres un gran fan de los formularios?</Paragraph2>
+        <ParagraphAndPhone>
+          <FontAwesomeIcon style={{ marginRight: "6px" }} icon={faPhone} />
+          <Paragraph3>+52 33 1134 4061</Paragraph3>
+        </ParagraphAndPhone>
+      </BottomDiv>
     </Section>
   );
 };

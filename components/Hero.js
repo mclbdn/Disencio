@@ -147,8 +147,6 @@ const Paragraph = styled.p`
 
 const CTAContainer = styled.div`
   position: relative;
-  // width: 117px;
-  // height: 50px;
   margin-left: 20px;
 
   @media (min-width: 744px) {
