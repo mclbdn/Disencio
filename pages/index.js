@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Company from "../components/Company";
+import Contact from "../components/Contact";
 import Faq from "../components/Faq";
 import FirstAnimatedText from "../components/FirstAnimatedText";
 import FourthAnimatedText from "../components/FourthAnimatedText";
@@ -27,6 +28,7 @@ export default function Home() {
       <ThirdAnimatedText />
       <Faq />
       <FourthAnimatedText />
+      <Contact />
     </Div>
   );
 }

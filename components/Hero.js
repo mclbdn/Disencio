@@ -448,7 +448,7 @@ const Hero = () => {
         <CTABtn>
           <Link href="/" passHref>
             <CTAAnchor>
-              <AnchorSpan padding="13.5px 18px">Lo quiero!</AnchorSpan>
+              <AnchorSpan padding="13.5px 14px">Lo quiero!</AnchorSpan>
             </CTAAnchor>
           </Link>
         </CTABtn>

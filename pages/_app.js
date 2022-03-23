@@ -56,6 +56,26 @@ ul {
   padding-inline-start: 0px;
 }
 
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: rgba(187, 200, 212, 1);
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: rgba(187, 200, 212, 1);
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: rgba(187, 200, 212, 1);
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: rgba(187, 200, 212, 1);
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color: rgba(187, 200, 212, 1);
+}
+
+::placeholder { /* Most modern browsers support this now. */
+   color: rgba(187, 200, 212, 1);
+}
+
 #root,
 #__next {
   isolation: isolate;
