@@ -79,11 +79,28 @@ const SingleFaq = ({ faqQuestion, faqAnswer }) => {
   return (
     <FaqDiv>
       <SingleFaqWrapper onClick={toggleFaq}>
-        <H3>{faqQuestion}</H3>
+        <H3
+          style={{
+            transition: "color 1s ease-in-out",
+            color: isParagraphVisible
+              ? "var(--turquoise-color)"
+              : "var(--off-white-color)",
+          }}
+        >
+          {faqQuestion}
+        </H3>
         {isParagraphVisible ? (
           <SVGWrapper>
             <FontAwesomeIcon
-              style={{ position: "absolute", width: "100%", height: "100%" }}
+              style={{
+                position: "absolute",
+                width: "100%",
+                height: "100%",
+                transition: "color 1s ease-in-out",
+                color: isParagraphVisible
+                  ? "var(--turquoise-color)"
+                  : "var(--off-white-color)",
+              }}
               icon={faCaretUp}
             />
           </SVGWrapper>
@@ -98,6 +115,10 @@ const SingleFaq = ({ faqQuestion, faqAnswer }) => {
                 bottom: "0px",
                 left: "0px",
                 right: "0px",
+                transition: "color 1s ease-in-out",
+                color: isParagraphVisible
+                  ? "var(--turquoise-color)"
+                  : "var(--off-white-color)",
               }}
               icon={faCaretDown}
             />

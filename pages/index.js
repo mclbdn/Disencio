@@ -9,6 +9,7 @@ import SecondAnimatedText from "../components/SecondAnimatedText";
 import Services from "../components/Services";
 import ThirdAnimatedText from "../components/ThirdAnimatedText";
 import { Helmet } from "react-helmet";
+import FifthAnimatedText from "../components/FifthAnimatedText";
 
 const Div = styled.div`
   background: linear-gradient(
@@ -40,6 +41,7 @@ export default function Home() {
       <Faq />
       <FourthAnimatedText />
       <Contact />
+      <FifthAnimatedText />
     </Div>
   );
 }

@@ -171,7 +171,7 @@ const Input = styled.input`
     // outline: 2px solid;
     outline: none;
     // outline-offset: -2px;
-    animation: ${Animation} 0.5s ease-in forwards;
+    animation: ${Animation} 1s ease-in forwards;
   }
 
   @media (min-width: 744px) {
@@ -198,7 +198,7 @@ const TextArea = styled.textarea`
     outline: 2px solid;
 
     outline-offset: -2px;
-    animation: ${Animation} 0.5s ease-in forwards;
+    animation: ${Animation} 1s ease-in forwards;
   }
 
   @media (min-width: 744px) {
@@ -227,12 +227,12 @@ const CTAContainer = styled.div`
 `;
 
 const CTABtn = styled.button`
-  width: 100%;
-  height: 100%;
+  width: 201px;
   outline: none;
   padding: 0;
   border: 0;
   background: transparent;
+  text-align: left;
 
   @media (min-width: 1440px) {
     text-align: left;
@@ -250,11 +250,13 @@ const AnchorSpan = styled.span`
   z-index: 2;
 
   @media (min-width: 740px) {
-    padding: 18px 13px;
+    font-size: 18px;
+    padding: 10.5px 16px;
   }
 
   @media (min-width: 1440px) {
-    padding: 20.5px 21px;
+    font-size: 22px;
+    padding: 14px 21px;
   }
 `;
 

@@ -152,7 +152,7 @@ const CTAContainer = styled.div`
   margin-left: 20px;
 
   @media (min-width: 744px) {
-    width: 139px;
+    width: 160px;
     height: 65.2px;
     margin-left: 40px;
   }
@@ -217,7 +217,98 @@ const LI = styled.li`
   }
 `;
 
-const StyledLink = styled.a`
+const CTABtn = styled.div`
+  width: 100%;
+`;
+
+const AnchorSpan = styled.span`
+  background-color: #000;
+  color: var(--off-white-color);
+  display: inline-block;
+  padding: 16px 16px;
+
+  border-radius: 100px;
+  position: relative;
+  z-index: 2;
+
+  @media (min-width: 740px) {
+    padding: 16px 33px;
+  }
+
+  @media (min-width: 1440px) {
+    padding: ${(props) => props.padding};
+  }
+`;
+
+const CTAAnchor = styled.a`
+  font-size: 18px;
+  line-height: 100%;
+  font-weight: 700;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  border-radius: 100px;
+  background: linear-gradient(
+    83.78deg,
+    #fc0085 1.04%,
+    #009dff 50.07%,
+    #0dfffc 92.88%
+  );
+  padding: 1px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  border: 0;
+  text-transform: inherit;
+  letter-spacing: 0;
+  overflow: visible !important;
+  text-decoration: none;
+
+  &:before {
+    content: "";
+    background: linear-gradient(
+      83.78deg,
+      #fc0085 1.04%,
+      #009dff 50.07%,
+      #0dfffc 92.88%
+    );
+    position: absolute;
+    top: 8px;
+    left: 0;
+    background-size: 300%;
+    z-index: -1;
+    -webkit-filter: blur(6px);
+    filter: blur(6px);
+    width: 100%;
+    height: 100%;
+    -webkit-animation: glowing 50s linear infinite;
+    animation: glowing 50s linear infinite;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+    transition-property: opacity;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+    border-radius: 100px;
+    display: block;
+  }
+
+  &:hover::before {
+    background: linear-gradient(
+      83.78deg,
+      #fc0085 1.04%,
+      #009dff 50.07%,
+      #0dfffc 92.88%
+    );
+    opacity: 0.35;
+  }
+
+  @media (min-width: 1440px) {
+    font-size: 22px;
+  }
+`;
+
+const StyledNavLink = styled(ScrollLink)`
   cursor: pointer;
   color: var(--off-white-color);
   text-decoration: none;
@@ -280,30 +371,7 @@ const StyledLink = styled.a`
   }
 `;
 
-const CTABtn = styled.div`
-  width: 100%;
-`;
-
-const AnchorSpan = styled.span`
-  background-color: #000;
-  color: var(--off-white-color);
-  display: inline-block;
-  padding: 16px 16px;
-
-  border-radius: 100px;
-  position: relative;
-  z-index: 2;
-
-  @media (min-width: 740px) {
-    padding: 12px 19px;
-  }
-
-  @media (min-width: 1440px) {
-    padding: ${(props) => props.padding};
-  }
-`;
-
-const CTAAnchor = styled.a`
+const VamosLink = styled(ScrollLink)`
   font-size: 18px;
   line-height: 100%;
   font-weight: 700;
@@ -415,47 +483,45 @@ const Hero = () => {
         </LogoDiv>
         <UL>
           <LI>
-            <ScrollLink
+            <StyledNavLink
               to="services-section"
               spy={true}
               smooth="easeInOutQuint"
               duration={2000}
             >
-              <StyledLink>Servicios</StyledLink>
-            </ScrollLink>
+              Servicios
+            </StyledNavLink>
           </LI>
           <LI>
-            <ScrollLink
+            <StyledNavLink
               to="values-section"
               spy={true}
               smooth="easeInOutQuint"
               duration={2000}
             >
-              <StyledLink>Nuestros Valores</StyledLink>
-            </ScrollLink>
+              Nuestros Valores
+            </StyledNavLink>
           </LI>
           <LI>
-            <ScrollLink
+            <StyledNavLink
               to="faq-section"
               spy={true}
               smooth="easeInOutQuint"
               duration={2000}
             >
-              <StyledLink>FAQ</StyledLink>
-            </ScrollLink>
+              FAQ
+            </StyledNavLink>
           </LI>
           <LI>
             <CTABtn>
-              <ScrollLink
+              <VamosLink
                 to="contact-section"
                 spy={true}
                 smooth="easeInOutQuint"
                 duration={2000}
               >
-                <CTAAnchor>
-                  <AnchorSpan padding="13px 33px">Vamos!</AnchorSpan>
-                </CTAAnchor>
-              </ScrollLink>
+                <AnchorSpan padding="14px 31.4px">Vamos!</AnchorSpan>
+              </VamosLink>
             </CTABtn>
           </LI>
         </UL>
@@ -485,7 +551,7 @@ const Hero = () => {
             duration={2000}
           >
             <CTAAnchor>
-              <AnchorSpan padding="13.5px 14px">Lo quiero!</AnchorSpan>
+              <AnchorSpan padding="14px 18.5px">Lo quiero!</AnchorSpan>
             </CTAAnchor>
           </ScrollLink>
         </CTABtn>
