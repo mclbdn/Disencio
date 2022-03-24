@@ -2,6 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
 import { useRef, useEffect, useState } from "react";
+import {
+  Link as ScrollLink,
+  Button,
+  Element,
+  Events,
+  animateScroll as scroll,
+  scrollSpy,
+  scroller,
+} from "react-scroll";
 
 const Section = styled.section`
   height: 100vh;
@@ -112,6 +121,7 @@ const H1 = styled.h1`
 `;
 
 const Span = styled.span`
+  display: inline-block;
   background-color: var(--pink-color);
   background-image: linear-gradient(
     284.09deg,
@@ -206,6 +216,7 @@ const LI = styled.li`
 `;
 
 const StyledLink = styled.a`
+  cursor: pointer;
   color: var(--off-white-color);
   text-decoration: none;
   font-weight: 500;
@@ -218,6 +229,7 @@ const StyledLink = styled.a`
   &:after {
     position: absolute;
     content: "";
+    border-top: 0px;
     border-bottom: 2px solid;
     -moz-border-image: -moz-linear-gradient(
       83.78deg,
@@ -401,27 +413,47 @@ const Hero = () => {
         </LogoDiv>
         <UL>
           <LI>
-            <Link href="https://www.google.com" passHref>
+            <ScrollLink
+                to="services-section"
+                spy={true}
+                smooth="easeInOutQuint"
+                duration={2000}
+              >
               <StyledLink>Servicios</StyledLink>
-            </Link>
+            </ScrollLink>
           </LI>
           <LI>
-            <Link href="/" passHref>
+            <ScrollLink
+              to="values-section"
+              spy={true}
+              smooth="easeInOutQuint"
+              duration={2000}
+            >
               <StyledLink>Nuestros Valores</StyledLink>
-            </Link>
+            </ScrollLink>
           </LI>
           <LI>
-            <Link href="/" passHref>
+            <ScrollLink
+                to="faq-section"
+                spy={true}
+                smooth="easeInOutQuint"
+                duration={2000}
+              >
               <StyledLink>FAQ</StyledLink>
-            </Link>
+            </ScrollLink>
           </LI>
           <LI>
             <CTABtn>
-              <Link href="/" passHref>
+              <ScrollLink
+                to="contact-section"
+                spy={true}
+                smooth="easeInOutQuint"
+                duration={2000}
+              >
                 <CTAAnchor>
                   <AnchorSpan padding="13px 33px">Vamos!</AnchorSpan>
                 </CTAAnchor>
-              </Link>
+              </ScrollLink>
             </CTABtn>
           </LI>
         </UL>
@@ -444,13 +476,24 @@ const Hero = () => {
       </Paragraph>
       <CTAContainer>
         <CTABtn>
-          <Link href="/" passHref>
+          <ScrollLink
+                to="contact-section"
+                spy={true}
+                smooth="easeInOutQuint"
+                duration={2000}
+              >
             <CTAAnchor>
               <AnchorSpan padding="13.5px 14px">Lo quiero!</AnchorSpan>
             </CTAAnchor>
-          </Link>
+          </ScrollLink>
         </CTABtn>
       </CTAContainer>
+        <ScrollLink
+                to="services-section"
+                spy={true}
+                smooth="easeInOutQuint"
+                duration={2000}
+              >
       <AnglesDownContainerWrapper>
         <AnglesDownContainer>
           <a href="">
@@ -463,6 +506,7 @@ const Hero = () => {
           </a>
         </AnglesDownContainer>
       </AnglesDownContainerWrapper>
+      </ScrollLink>
     </Section>
   );
 };

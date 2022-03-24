@@ -31,26 +31,31 @@ const Faq = () => {
 
   const faqs = [
     {
+      id: 1,
       faqQuestion: "¿Por qué debo utilizar una empresa de diseño web?",
       faqAnswer:
         "Cuando estás considerando crear un sitio web para su negocio, sabemos que se te presentan muchas opciones diferentes. Hay muchas empresas de diseño web, creadores de sitios web como Wix o el amigo de la familia que es bueno con las computadoras. Para algunas personas, las dos últimas opciones pueden ser una opción, pero solo un diseñador web experimentado puede crear un producto que atraiga a los visitantes y los convierta en clientes.",
     },
     {
+      id: 2,
       faqQuestion: "¿Cómo empiezo?",
       faqAnswer:
         "Antes de firmar o comprometerse con algo, tenemos un extenso 'Cuestionario del cliente' que le pedimos que complete para que podamos aprender más sobre sus necesidades, clientes e industria. No hay absolutamente ningún compromiso de su parte al completar este cuestionario.",
     },
     {
+      id: 3,
       faqQuestion: "¿Cuánto tiempo se tarda en construir mi sitio web?",
       faqAnswer:
         "Cada proyecto es diferente, por lo que no hay un cronograma establecido. Sin embargo, tratamos de lanzar nuevos sitios entre dos y tres semanas. Le daremos un cronograma detallado antes de comenzar cualquier trabajo.",
     },
     {
+      id: 4,
       faqQuestion: "¿Con qué tamaño y tipo de empresas trabajan?",
       faqAnswer:
         "Tenemos un equilibrio uniforme de startups, pequeñas empresas y organizaciones sin fines de lucro en una multitud de industrias.",
     },
     {
+      id: 5,
       faqQuestion:
         "¿Existirá algún tipo de seguimiento despúes de tener el sitio web?",
       faqAnswer:
@@ -79,13 +84,14 @@ const Faq = () => {
 
   return (
     <Section
+    id="faq-section"
       ref={ref}
       style={{ opacity: isVisible ? 1 : 0, transition: "opacity 2.5s" }}
     >
       <H2>FAQ</H2>
       {faqs.map((faq) => {
         return (
-          <SingleFaq faqQuestion={faq.faqQuestion} faqAnswer={faq.faqAnswer} />
+          <SingleFaq key={faq.id} faqQuestion={faq.faqQuestion} faqAnswer={faq.faqAnswer} />
         );
       })}
     </Section>

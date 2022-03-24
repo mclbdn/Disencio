@@ -114,18 +114,6 @@ const Paragraph3 = styled.p`
   }
 `;
 
-const Animation = keyframes`
-  0% {
-    outline-color: var(--turquoise-color);
-  }
-  50% {
-    outline-color: var(--purple-color);
-  }
-  100% {
-    outline-color: var(--light-blue-color);
-  }
-`;
-
 const Form = styled.form`
   @media (min-width: 740px) {
     flex: 1;
@@ -159,6 +147,18 @@ const Label = styled.label`
   width: 1px !important;
 `;
 
+const Animation = keyframes`
+  0% {
+    border-color: var(--turquoise-color);
+  }
+  50% {
+    border-color: var(--purple-color);
+  }
+  100% {
+    border-color: var(--light-blue-color);
+  }
+`;
+
 const Input = styled.input`
   font-size: 16px;
   color: rgba(187, 200, 212, 1);
@@ -168,9 +168,9 @@ const Input = styled.input`
   width: 100%;
 
   &:focus {
-    outline: 2px solid;
-
-    outline-offset: -2px;
+    // outline: 2px solid;
+    outline: none;
+    // outline-offset: -2px;
     animation: ${Animation} 0.5s ease-in forwards;
   }
 
@@ -371,6 +371,7 @@ const Contact = () => {
 
   return (
     <Section
+      id="contact-section"
       ref={ref}
       style={{ opacity: isVisible ? 1 : 0, transition: "opacity 2.5s" }}
     >

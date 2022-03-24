@@ -187,6 +187,7 @@ const Services = () => {
 
   return (
     <Section
+    id="services-section"
       ref={ref}
       style={{ opacity: isVisible ? 1 : 0, transition: "opacity 2.5s" }}
     >

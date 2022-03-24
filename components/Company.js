@@ -150,6 +150,7 @@ const Company = () => {
 
   return (
     <Section
+    id="values-section"
       ref={ref}
       style={{ opacity: isVisible ? 1 : 0, transition: "opacity 2.5s" }}
     >

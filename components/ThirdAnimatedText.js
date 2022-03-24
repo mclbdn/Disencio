@@ -91,7 +91,6 @@ const ThirdAnimatedText = () => {
       rootMargin: "-40px",
     };
     const observer = new IntersectionObserver((entries) => {
-      console.log("Hero");
       const entry = entries[0];
       if (entry.isIntersecting) {
         setIsVisible(true);
