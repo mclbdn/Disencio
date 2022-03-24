@@ -48,6 +48,14 @@ const Paragraph = styled.p`
   font-size: 16px;
   font-weight: 300;
   line-height: 150%;
+
+  @media (min-width: 744px) {
+    font-size: 20px;
+  }
+
+  @media (min-width: 1440px) {
+    font-size: 25px;
+  }
 `;
 
 const SVGWrapper = styled.div`
