@@ -114,7 +114,10 @@ const ThirdAnimatedText = () => {
         <a>
           <NuestrosServiciosParagraph>
             descrubre las preguntas frecuentes{" "}
-            <FontAwesomeIcon icon={faChevronDown} />
+            <FontAwesomeIcon
+              style={{ marginLeft: "6px" }}
+              icon={faChevronDown}
+            />
           </NuestrosServiciosParagraph>
         </a>
       </Link>

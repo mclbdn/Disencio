@@ -117,7 +117,11 @@ const SecondAnimatedText = () => {
       <Link href="/" passHref>
         <a>
           <NuestrosServiciosParagraph>
-            conoce nuestra compañía <FontAwesomeIcon icon={faChevronDown} />
+            conoce nuestra compañía{" "}
+            <FontAwesomeIcon
+              style={{ marginLeft: "6px" }}
+              icon={faChevronDown}
+            />
           </NuestrosServiciosParagraph>
         </a>
       </Link>

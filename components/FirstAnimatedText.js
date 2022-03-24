@@ -114,7 +114,11 @@ const FirstAnimatedText = () => {
       <Link href="/" passHref>
         <a>
           <NuestrosServiciosParagraph>
-            nuestros servicios <FontAwesomeIcon icon={faChevronDown} />
+            nuestros servicios
+            <FontAwesomeIcon
+              style={{ marginLeft: "6px" }}
+              icon={faChevronDown}
+            />
           </NuestrosServiciosParagraph>
         </a>
       </Link>

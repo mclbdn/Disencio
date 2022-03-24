@@ -118,7 +118,11 @@ const FourthAnimatedText = () => {
       <Link href="/" passHref>
         <a>
           <NuestrosServiciosParagraph>
-            contáctanos <FontAwesomeIcon icon={faChevronDown} />
+            contáctanos{" "}
+            <FontAwesomeIcon
+              style={{ marginLeft: "6px" }}
+              icon={faChevronDown}
+            />
           </NuestrosServiciosParagraph>
         </a>
       </Link>

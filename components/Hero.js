@@ -1,16 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { useRef, useEffect, useState } from "react";
-import {
-  Link as ScrollLink,
-  Button,
-  Element,
-  Events,
-  animateScroll as scroll,
-  scrollSpy,
-  scroller,
-} from "react-scroll";
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 
 const Section = styled.section`
   height: 100vh;
@@ -170,11 +162,21 @@ const CTAContainer = styled.div`
   }
 `;
 
+const MoveAnglesUpAndDown = keyframes`
+  0% {
+    transform: translateY(0%);
+  }
+  100%{
+    transform: translateY(30%);
+  }
+`;
+
 const AnglesDownContainerWrapper = styled.div`
   position: absolute;
   bottom: 30px;
   left: 0;
   right: 0;
+  animation: ${MoveAnglesUpAndDown} 2s ease-in-out alternate infinite;
 `;
 
 const AnglesDownContainer = styled.div`
@@ -414,11 +416,11 @@ const Hero = () => {
         <UL>
           <LI>
             <ScrollLink
-                to="services-section"
-                spy={true}
-                smooth="easeInOutQuint"
-                duration={2000}
-              >
+              to="services-section"
+              spy={true}
+              smooth="easeInOutQuint"
+              duration={2000}
+            >
               <StyledLink>Servicios</StyledLink>
             </ScrollLink>
           </LI>
@@ -434,11 +436,11 @@ const Hero = () => {
           </LI>
           <LI>
             <ScrollLink
-                to="faq-section"
-                spy={true}
-                smooth="easeInOutQuint"
-                duration={2000}
-              >
+              to="faq-section"
+              spy={true}
+              smooth="easeInOutQuint"
+              duration={2000}
+            >
               <StyledLink>FAQ</StyledLink>
             </ScrollLink>
           </LI>
@@ -477,35 +479,35 @@ const Hero = () => {
       <CTAContainer>
         <CTABtn>
           <ScrollLink
-                to="contact-section"
-                spy={true}
-                smooth="easeInOutQuint"
-                duration={2000}
-              >
+            to="contact-section"
+            spy={true}
+            smooth="easeInOutQuint"
+            duration={2000}
+          >
             <CTAAnchor>
               <AnchorSpan padding="13.5px 14px">Lo quiero!</AnchorSpan>
             </CTAAnchor>
           </ScrollLink>
         </CTABtn>
       </CTAContainer>
-        <ScrollLink
-                to="services-section"
-                spy={true}
-                smooth="easeInOutQuint"
-                duration={2000}
-              >
-      <AnglesDownContainerWrapper>
-        <AnglesDownContainer>
-          <a href="">
-            <Image
-              layout="fill"
-              src="/images/angles-down.svg"
-              objectFit="contain"
-              draggable="false"
-            />
-          </a>
-        </AnglesDownContainer>
-      </AnglesDownContainerWrapper>
+      <ScrollLink
+        to="services-section"
+        spy={true}
+        smooth="easeInOutQuint"
+        duration={2000}
+      >
+        <AnglesDownContainerWrapper>
+          <AnglesDownContainer>
+            <a href="">
+              <Image
+                layout="fill"
+                src="/images/angles-down.svg"
+                objectFit="contain"
+                draggable="false"
+              />
+            </a>
+          </AnglesDownContainer>
+        </AnglesDownContainerWrapper>
       </ScrollLink>
     </Section>
   );
