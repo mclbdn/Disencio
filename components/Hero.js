@@ -293,19 +293,15 @@ const StyledNavLink = styled(ScrollLink)`
       #fc0085 92.88%
     );
     bottom: 0px;
-    transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
     border-image-slice: 2;
   }
 
-  &:before {
-    width: 25%;
-    transform-origin: left;
-  }
 
   &:after {
-    width: 75%;
-    left: 25%;
-    transform: translateX(110%);
+    width: 100%;
+    left: 0%;
+    transform: translateX(-110%);
   }
 
   &:hover:before {
