@@ -354,6 +354,12 @@ const BottomDiv = styled.div`
 const Contact = () => {
   const ref = useRef();
   const [isVisible, setIsVisible] = useState(false);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+  const [btnText, setBtnText] = useState("Manda mensaje");
 
   useEffect(() => {
     const observerOptions = {
@@ -374,6 +380,39 @@ const Contact = () => {
     return () => observer.unobserve(ref.current);
   }, []);
 
+  async function handleFormSubmit(e) {
+    e.preventDefault();
+
+    const formData = new FormData();
+
+    formData.append("firstName", firstName);
+    formData.append("lastName", lastName);
+    formData.append("email", email);
+    formData.append("phone", phone);
+    formData.append("message", message);
+
+    try {
+      const response = await fetch(
+        "https://getform.io/f/ee567032-28c6-41ca-bfc5-65ddb8e42bbe",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      if (response.ok) {
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+        setPhone("");
+        setMessage("");
+        setBtnText("Gracias!")
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <Section
       id="contact-section"
@@ -388,58 +427,72 @@ const Contact = () => {
           Rellena el formulario y te contactarémos en un máximo de 24 horas.
         </Paragraph>
 
-        <Form>
+        <Form
+          onSubmit={handleFormSubmit}
+          action="https://getform.io/f/ee567032-28c6-41ca-bfc5-65ddb8e42bbe"
+          method="POST"
+        >
           <LabelAndInput>
-            <Label htmlFor="nombre">Nombre *</Label>
+            <Label htmlFor="firstName">Nombre *</Label>
             <Input
-              id="nombre"
-              name="nombre"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              id="firstName"
+              name="firstName"
               type="text"
               placeholder="Nombre *"
               required
             ></Input>
           </LabelAndInput>
           <LabelAndInput>
-            <Label htmlFor="apellido">Apellido *</Label>
+            <Label htmlFor="lastName">Apellido *</Label>
             <Input
-              id="apellido"
-              name="apellido"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              id="lastName"
+              name="lastName"
               type="text"
               placeholder="Apellido *"
               required
             ></Input>
           </LabelAndInput>
           <LabelAndInput>
-            <Label htmlFor="correo">Correo electrónico *</Label>
+            <Label htmlFor="email">Correo electrónico *</Label>
             <Input
-              id="correo"
-              name="correo"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              id="email"
+              name="email"
               type="email"
               placeholder="Correo electrónico *"
               required
             ></Input>
           </LabelAndInput>
           <LabelAndInput>
-            <Label htmlFor="celular">Celular </Label>
+            <Label htmlFor="phone">Celular </Label>
             <Input
-              id="celular"
-              name="celular"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              id="phone"
+              name="phone"
               type="text"
               placeholder="Celular "
             ></Input>
           </LabelAndInput>
           <LabelAndInput>
-            <Label htmlFor="mensaje">¿Algo más que debamos saber?</Label>
+            <Label htmlFor="message">¿Algo más que debamos saber?</Label>
             <TextArea
-              id="mensaje"
-              name="mensaje"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              id="message"
+              name="message"
               placeholder="¿Algo más que debamos saber?"
             ></TextArea>
           </LabelAndInput>
           <CTAContainer>
             <CTABtn type="submit">
               <CTAAnchor>
-                <AnchorSpan padding="13.5px 14px">Manda mensaje</AnchorSpan>
+                <AnchorSpan padding="13.5px 14px">{btnText}</AnchorSpan>
               </CTAAnchor>
             </CTABtn>
           </CTAContainer>
