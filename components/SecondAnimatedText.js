@@ -2,7 +2,7 @@ import styled, { keyframes } from "styled-components";
 import { useRef, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import Link from "next/link";
+import { Link as ScrollLink } from "react-scroll";
 
 const Section = styled.section`
   height: 100vh;
@@ -68,8 +68,10 @@ const NuestrosServiciosParagraph = styled.p`
   font-weight: 300;
   position: absolute;
   top: 49%;
-  width: 100%;
-  text-align: center;
+  width: fit-content;
+  margin: 0 auto;
+  left: 0px;
+  right: 0px;
   color: var(--off-white-color);
   opacity: 0.6;
 
@@ -114,17 +116,18 @@ const SecondAnimatedText = () => {
       <AnimatedTextWrapper>
         <AnimatedText>Nuestros valores nos diferencian del resto.</AnimatedText>
       </AnimatedTextWrapper>
-      <Link href="/" passHref>
-        <a>
-          <NuestrosServiciosParagraph>
-            conoce nuestra compañía{" "}
-            <FontAwesomeIcon
-              style={{ marginLeft: "6px" }}
-              icon={faChevronDown}
-            />
-          </NuestrosServiciosParagraph>
-        </a>
-      </Link>
+      <ScrollLink
+        style={{ cursor: "pointer" }}
+        to="values-section"
+        spy={true}
+        smooth="easeInOutQuint"
+        duration={2000}
+      >
+        <NuestrosServiciosParagraph>
+          conoce nuestra compañía{" "}
+          <FontAwesomeIcon style={{ marginLeft: "6px" }} icon={faChevronDown} />
+        </NuestrosServiciosParagraph>
+      </ScrollLink>
     </Section>
   );
 };

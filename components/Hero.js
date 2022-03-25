@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styled, { keyframes } from "styled-components";
 import { useRef, useEffect, useState } from "react";
-import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
 
 const Section = styled.section`
   height: 100vh;
@@ -232,7 +232,7 @@ const AnchorSpan = styled.span`
   z-index: 2;
 
   @media (min-width: 740px) {
-    padding: 16px 33px;
+    padding: 12.5px 33px;
   }
 
   @media (min-width: 1440px) {
@@ -240,71 +240,21 @@ const AnchorSpan = styled.span`
   }
 `;
 
-const CTAAnchor = styled.a`
-  font-size: 18px;
-  line-height: 100%;
-  font-weight: 700;
-  cursor: pointer;
-  position: relative;
+const AnchorSpanBottom = styled.span`
+  background-color: #000;
+  color: var(--off-white-color);
   display: inline-block;
+  padding: 12.5px 17.75px;
   border-radius: 100px;
-  background: linear-gradient(
-    83.78deg,
-    #fc0085 1.04%,
-    #009dff 50.07%,
-    #0dfffc 92.88%
-  );
-  padding: 1px;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-  border: 0;
-  text-transform: inherit;
-  letter-spacing: 0;
-  overflow: visible !important;
-  text-decoration: none;
+  position: relative;
+  z-index: 2;
 
-  &:before {
-    content: "";
-    background: linear-gradient(
-      83.78deg,
-      #fc0085 1.04%,
-      #009dff 50.07%,
-      #0dfffc 92.88%
-    );
-    position: absolute;
-    top: 8px;
-    left: 0;
-    background-size: 300%;
-    z-index: -1;
-    -webkit-filter: blur(6px);
-    filter: blur(6px);
-    width: 100%;
-    height: 100%;
-    -webkit-animation: glowing 50s linear infinite;
-    animation: glowing 50s linear infinite;
-    opacity: 0;
-    -webkit-transition: opacity 0.3s ease-in-out;
-    transition: opacity 0.3s ease-in-out;
-    transition-property: opacity;
-    transition-duration: 0.3s;
-    transition-timing-function: ease-in-out;
-    transition-delay: 0s;
-    border-radius: 100px;
-    display: block;
-  }
-
-  &:hover::before {
-    background: linear-gradient(
-      83.78deg,
-      #fc0085 1.04%,
-      #009dff 50.07%,
-      #0dfffc 92.88%
-    );
-    opacity: 0.35;
+  @media (min-width: 740px) {
+    padding: 12.5px 23px;
   }
 
   @media (min-width: 1440px) {
-    font-size: 22px;
+    padding: 14px 18.5px;
   }
 `;
 
@@ -544,16 +494,14 @@ const Hero = () => {
       </Paragraph>
       <CTAContainer>
         <CTABtn>
-          <ScrollLink
+          <VamosLink
             to="contact-section"
             spy={true}
             smooth="easeInOutQuint"
             duration={2000}
           >
-            <CTAAnchor>
-              <AnchorSpan padding="14px 18.5px">Lo quiero!</AnchorSpan>
-            </CTAAnchor>
-          </ScrollLink>
+            <AnchorSpanBottom>Lo quiero!</AnchorSpanBottom>
+          </VamosLink>
         </CTABtn>
       </CTAContainer>
       <ScrollLink
@@ -563,15 +511,13 @@ const Hero = () => {
         duration={2000}
       >
         <AnglesDownContainerWrapper>
-          <AnglesDownContainer>
-            <a href="">
+          <AnglesDownContainer style={{cursor: "pointer"}}>
               <Image
                 layout="fill"
                 src="/images/angles-down.svg"
                 objectFit="contain"
                 draggable="false"
               />
-            </a>
           </AnglesDownContainer>
         </AnglesDownContainerWrapper>
       </ScrollLink>

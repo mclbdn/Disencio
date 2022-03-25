@@ -213,11 +213,14 @@ const TextArea = styled.textarea`
 const CTAContainer = styled.div`
   position: relative;
   margin: 0 auto 40px;
+  display: flex;
+  justify-content: center;
 
   @media (min-width: 744px) {
     width: 185px;
     height: 65px;
     margin: 0 0 40px;
+    justify-content: left;
   }
 
   @media (min-width: 1440px) {
@@ -227,7 +230,7 @@ const CTAContainer = styled.div`
 `;
 
 const CTABtn = styled.button`
-  width: 201px;
+  width: fit-content;
   outline: none;
   padding: 0;
   border: 0;
@@ -243,7 +246,7 @@ const AnchorSpan = styled.span`
   background-color: #000;
   color: var(--off-white-color);
   display: inline-block;
-  padding: 16px 16px;
+  padding: 12.5px 16px;
 
   border-radius: 100px;
   position: relative;
