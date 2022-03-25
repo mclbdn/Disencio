@@ -1,7 +1,7 @@
 import styled, { keyframes } from "styled-components";
 import { useRef, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faPhone } from "@fortawesome/free-solid-svg-icons";
 
 const Section = styled.section`
   position: relative;
@@ -168,9 +168,7 @@ const Input = styled.input`
   width: 100%;
 
   &:focus {
-    // outline: 2px solid;
     outline: none;
-    // outline-offset: -2px;
     animation: ${Animation} 1s ease-in forwards;
   }
 
@@ -195,9 +193,7 @@ const TextArea = styled.textarea`
   resize: none;
 
   &:focus {
-    outline: 2px solid;
-
-    outline-offset: -2px;
+    outline: none;
     animation: ${Animation} 1s ease-in forwards;
   }
 
@@ -359,7 +355,7 @@ const Contact = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
-  const [btnText, setBtnText] = useState("Manda mensaje");
+  const [wasFormSend, setWasFormSend] = useState(false);
 
   useEffect(() => {
     const observerOptions = {
@@ -406,7 +402,7 @@ const Contact = () => {
         setEmail("");
         setPhone("");
         setMessage("");
-        setBtnText("Gracias!")
+        setWasFormSend(true)
       }
     } catch (error) {
       console.log(error);
@@ -492,7 +488,11 @@ const Contact = () => {
           <CTAContainer>
             <CTABtn type="submit">
               <CTAAnchor>
-                <AnchorSpan padding="13.5px 14px">{btnText}</AnchorSpan>
+                {wasFormSend ? (
+                  <AnchorSpan padding="13.5px 14px"><FontAwesomeIcon icon={faCheck} /> Gracias!</AnchorSpan>
+                ) : (
+                  <AnchorSpan padding="13.5px 14px">Manda mensaje</AnchorSpan>
+                )}
               </CTAAnchor>
             </CTABtn>
           </CTAContainer>
