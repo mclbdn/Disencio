@@ -22,6 +22,7 @@ body {
   -webkit-font-smoothing: antialiased;
   font-family: 'Lato', sans-serif;
   color: var(--off-white-color);
+  overflow-x: hidden;
 }
 
 img,

@@ -3,6 +3,8 @@ import Link from "next/link";
 import styled, { keyframes } from "styled-components";
 import { useRef, useEffect, useState } from "react";
 import { Link as ScrollLink } from "react-scroll";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
 
 const Section = styled.section`
   height: 100vh;
@@ -38,60 +40,6 @@ const LogoDiv = styled.div`
     width: 180px;
     height: 32px;
   }
-`;
-
-const HamburgerMenuWrapper = styled.div`
-  position: relative;
-  width: 21px;
-  height: 14px;
-
-  @media (min-width: 744px) {
-    display: none;
-  }
-`;
-
-const Checkbox = styled.input.attrs({ type: "checkbox" })`
-  width: 21px;
-  height: 14px;
-  position: absolute;
-  display: block;
-  z-index: 3;
-  opacity: 0;
-  cursor: pointer;
-`;
-
-const HamburgerLines = styled.div`
-  width: 21px;
-  height: 14px;
-  position: absolute;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`;
-
-const Line1 = styled.span`
-  display: block;
-  height: 2px;
-  width: 100%;
-  background: var(--off-white-color);
-  border-radius: 2px;
-`;
-
-const Line2 = styled.span`
-  display: block;
-  height: 2px;
-  width: 100%;
-  background: var(--off-white-color);
-  border-radius: 2px;
-`;
-
-const Line3 = styled.span`
-  display: block;
-  height: 2px;
-  width: 100%;
-  background: var(--off-white-color);
-  border-radius: 2px;
 `;
 
 const H1 = styled.h1`
@@ -191,29 +139,69 @@ const AnglesDownContainer = styled.div`
   }
 `;
 
-const UL = styled.ul`
-  display: none;
-  list-style: none;
-  align-items: center;
+const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
+  position: absolute;
+  right: 2rem;
+  width: 2rem;
+  height: 2rem;
+  z-index: 100;
+  cursor: pointer;
 
   @media (min-width: 744px) {
-    display: flex;
+    display: none;
+  }
+`;
+
+const UL = styled.ul`
+  inset: 0 0 0 0%;
+  background-color: hsl(0 0% 100% / 0.1);
+  background-color: rgba(var(--dark-color, 0.9));
+  backdrop-filter: blur(1rem);
+  position: absolute;
+  z-index: 3;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-out;
+  display: flex;
+  list-style: none;
+  align-items: center;
+  flex-direction: column;
+
+  &[data-visible="true"] {
+    transform: translateX(0%);
+  }
+
+  @media (min-width: 744px) {
+    flex-direction: row;
+    height: fit-content;
+    margin-top: 0;
+    transform: translateX(0%);
+    position: initial;
+    background-color: transparent;
   }
 `;
 
 const LI = styled.li`
-  margin-right: 26px;
+  margin-top: 60px;
 
-  &:last-child {
-    margin-right: 0px;
+  &:first-child {
+    margin-top: 90px;
+  }
+
+  @media (min-width: 744px) {
+    margin-top: 0px;
+    margin-right: 26px;
+
+    &:first-child {
+      margin-top: 0px;
+    }
+
+    &:last-child {
+      margin-right: 0px;
+    }
   }
 
   @media (min-width: 1440px) {
     margin-right: 65px;
-
-    &last-child {
-      margin-right: 0px;
-    }
   }
 `;
 
@@ -262,13 +250,12 @@ const StyledNavLink = styled(ScrollLink)`
   cursor: pointer;
   color: var(--off-white-color);
   text-decoration: none;
-  font-weight: 500;
   font-size: 18px;
+  font-weight: 500;
   display: inline-block;
   position: relative;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 
-  &:before,
   &:after {
     position: absolute;
     content: "";
@@ -297,15 +284,10 @@ const StyledNavLink = styled(ScrollLink)`
     border-image-slice: 2;
   }
 
-
   &:after {
     width: 100%;
     left: 0%;
     transform: translateX(-110%);
-  }
-
-  &:hover:before {
-    transform: scaleX(0.3);
   }
 
   &:hover:after {
@@ -388,6 +370,7 @@ const VamosLink = styled(ScrollLink)`
 const Hero = () => {
   const ref = useRef();
   const [isVisible, setIsVisible] = useState(false);
+  const [isMobileMenuVisible, setIsMobileMenuVisible] = useState(false);
 
   useEffect(() => {
     const observerOptions = {
@@ -427,9 +410,25 @@ const Hero = () => {
             </a>
           </Link>
         </LogoDiv>
-        <UL>
+        {isMobileMenuVisible ? (
+          <StyledFontAwesomeIcon
+            onClick={() => setIsMobileMenuVisible(false)}
+            aria-expanded="true"
+            aria-controls="mobile-navigation"
+            icon={faX}
+          />
+        ) : (
+          <StyledFontAwesomeIcon
+            onClick={() => setIsMobileMenuVisible(true)}
+            aria-expanded="false"
+            aria-controls="mobile-navigation"
+            icon={faBars}
+          />
+        )}
+        <UL id="mobile-navigation" data-visible={isMobileMenuVisible}>
           <LI>
             <StyledNavLink
+              onClick={() => setIsMobileMenuVisible(false)}
               to="services-section"
               spy={true}
               smooth="easeInOutQuint"
@@ -440,6 +439,7 @@ const Hero = () => {
           </LI>
           <LI>
             <StyledNavLink
+              onClick={() => setIsMobileMenuVisible(false)}
               to="values-section"
               spy={true}
               smooth="easeInOutQuint"
@@ -450,6 +450,7 @@ const Hero = () => {
           </LI>
           <LI>
             <StyledNavLink
+              onClick={() => setIsMobileMenuVisible(false)}
               to="faq-section"
               spy={true}
               smooth="easeInOutQuint"
@@ -461,6 +462,7 @@ const Hero = () => {
           <LI>
             <CTABtn>
               <VamosLink
+                onClick={() => setIsMobileMenuVisible(false)}
                 to="contact-section"
                 spy={true}
                 smooth="easeInOutQuint"
@@ -471,14 +473,6 @@ const Hero = () => {
             </CTABtn>
           </LI>
         </UL>
-        <HamburgerMenuWrapper>
-          <Checkbox />
-          <HamburgerLines>
-            <Line1 />
-            <Line2 />
-            <Line3 />
-          </HamburgerLines>
-        </HamburgerMenuWrapper>
       </Nav>
       <H1>
         Estéticos sitios web personalizados{" "}
@@ -507,13 +501,13 @@ const Hero = () => {
         duration={2000}
       >
         <AnglesDownContainerWrapper>
-          <AnglesDownContainer style={{cursor: "pointer"}}>
-              <Image
-                layout="fill"
-                src="/images/angles-down.svg"
-                objectFit="contain"
-                draggable="false"
-              />
+          <AnglesDownContainer style={{ cursor: "pointer" }}>
+            <Image
+              layout="fill"
+              src="/images/angles-down.svg"
+              objectFit="contain"
+              draggable="false"
+            />
           </AnglesDownContainer>
         </AnglesDownContainerWrapper>
       </ScrollLink>
