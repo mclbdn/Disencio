@@ -388,13 +388,10 @@ const Contact = () => {
     formData.append("message", message);
 
     try {
-      const response = await fetch(
-        "https://getform.io/f/ee567032-28c6-41ca-bfc5-65ddb8e42bbe",
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
+      const response = await fetch(`${process.env.NEXT_PUBLIC_GETFORM_URL}`, {
+        method: "POST",
+        body: formData,
+      });
 
       if (response.ok) {
         setFirstName("");
