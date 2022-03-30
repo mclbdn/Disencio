@@ -507,6 +507,7 @@ const Hero = () => {
               src="/images/angles-down.svg"
               objectFit="contain"
               draggable="false"
+              alt="Moving image of arrows moving towards bottom."
             />
           </AnglesDownContainer>
         </AnglesDownContainerWrapper>
