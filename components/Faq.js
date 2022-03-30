@@ -34,7 +34,7 @@ const Faq = () => {
       id: 1,
       faqQuestion: "¿Por qué debo utilizar una empresa de diseño web?",
       faqAnswer:
-        "Cuando estás considerando crear un sitio web para su negocio, sabemos que se te presentan muchas opciones diferentes. Hay muchas empresas de diseño web, creadores de sitios web como Wix o el amigo de la familia que es bueno con las computadoras. Para algunas personas, las dos últimas opciones pueden ser una opción, pero solo un diseñador web experimentado puede crear un producto que atraiga a los visitantes y los convierta en clientes.",
+        "Cuando estás considerando crear un sitio web para tu negocio, sabemos que se te presentan muchas opciones diferentes. Hay muchas empresas de diseño web, creadores de sitios web como Wix o el amigo de la familia que es bueno con las computadoras. Para algunas personas, las dos últimas opciones pueden ser una mejor opción, pero solo un diseñador web experimentado puede crear un producto que atraiga a los visitantes y los convierta en clientes.",
     },
     {
       id: 2,
@@ -46,7 +46,7 @@ const Faq = () => {
       id: 3,
       faqQuestion: "¿Cuánto tiempo se tarda en construir mi sitio web?",
       faqAnswer:
-        "Cada proyecto es diferente, por lo que no hay un cronograma establecido. Sin embargo, tratamos de lanzar nuevos sitios entre dos y tres semanas. Le daremos un cronograma detallado antes de comenzar cualquier trabajo.",
+        "Cada proyecto es diferente, por lo que no hay un cronograma establecido. Sin embargo, tratamos de lanzar nuevos sitios en un periodo de dos a tres semanas. Te daremos un cronograma detallado antes de comenzar cualquier trabajo.",
     },
     {
       id: 4,
