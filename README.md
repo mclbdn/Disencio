@@ -6,7 +6,7 @@ Next.js website using [styled components](https://styled-components.com/) to pro
 
 ## Features
 * Used React framework [Next.js](https://nextjs.org/)
-* Implemented styled components
+* Implemented [styled components](https://styled-components.com/)
 * Fully responsive UI
 * Used mobile-first approach
 * [Getform.io](https://getform.io/) providing form endpoint
