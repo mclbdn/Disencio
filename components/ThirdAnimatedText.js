@@ -113,6 +113,7 @@ const ThirdAnimatedText = () => {
         <AnimatedText>Estamos aquí para ayudar!</AnimatedText>
       </AnimatedTextWrapper>
       <ScrollLink
+        href="/"
         style={{ cursor: "pointer" }}
         to="faq-section"
         spy={true}

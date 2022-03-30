@@ -118,6 +118,7 @@ const FourthAnimatedText = () => {
         <AnimatedText>Ponte en contacto!</AnimatedText>
       </AnimatedTextWrapper>
       <ScrollLink
+        href="/"
         style={{ cursor: "pointer" }}
         to="contact-section"
         spy={true}

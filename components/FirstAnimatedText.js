@@ -115,6 +115,7 @@ const FirstAnimatedText = () => {
         </AnimatedText>
       </AnimatedTextWrapper>
       <ScrollLink
+        href="/"
         style={{ cursor: "pointer" }}
         to="services-section"
         spy={true}

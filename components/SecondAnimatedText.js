@@ -117,6 +117,7 @@ const SecondAnimatedText = () => {
         <AnimatedText>Nuestros valores nos diferencian del resto.</AnimatedText>
       </AnimatedTextWrapper>
       <ScrollLink
+        href="/"
         style={{ cursor: "pointer" }}
         to="values-section"
         spy={true}

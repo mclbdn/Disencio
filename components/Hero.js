@@ -428,6 +428,7 @@ const Hero = () => {
         <UL id="mobile-navigation" data-visible={isMobileMenuVisible}>
           <LI>
             <StyledNavLink
+              href="/"
               onClick={() => setIsMobileMenuVisible(false)}
               to="services-section"
               spy={true}
@@ -439,6 +440,7 @@ const Hero = () => {
           </LI>
           <LI>
             <StyledNavLink
+              href="/"
               onClick={() => setIsMobileMenuVisible(false)}
               to="values-section"
               spy={true}
@@ -450,6 +452,7 @@ const Hero = () => {
           </LI>
           <LI>
             <StyledNavLink
+              href="/"
               onClick={() => setIsMobileMenuVisible(false)}
               to="faq-section"
               spy={true}
@@ -462,6 +465,7 @@ const Hero = () => {
           <LI>
             <CTABtn>
               <VamosLink
+                href="/"
                 onClick={() => setIsMobileMenuVisible(false)}
                 to="contact-section"
                 spy={true}
@@ -485,6 +489,7 @@ const Hero = () => {
       <CTAContainer>
         <CTABtn>
           <VamosLink
+            href="/"
             to="contact-section"
             spy={true}
             smooth="easeInOutQuint"
@@ -495,6 +500,7 @@ const Hero = () => {
         </CTABtn>
       </CTAContainer>
       <ScrollLink
+        href="/"
         to="services-section"
         spy={true}
         smooth="easeInOutQuint"
