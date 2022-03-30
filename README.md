@@ -10,7 +10,7 @@ Next.js website using [styled components](https://styled-components.com/) to pro
 * Fully responsive UI
 * Used mobile-first approach
 * [Getform.io](https://getform.io/) providing form endpoint
-* [Designed website](https://www.figma.com/file/huhGu5yUZW4vuCXRURsYYV/Dise%C3%B1cio.?node-id=0%3A1) first in Figma
+* [Designed website](https://www.figma.com/file/huhGu5yUZW4vuCXRURsYYV/Dise%C3%B1cio.?node-id=9%3A1181) first in Figma
 * Hosted on Vercel
 
 ## Preview video on YouTube
