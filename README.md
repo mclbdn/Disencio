@@ -2,7 +2,7 @@
 
 ### <a href="https://disencio.vercel.app/">Try running this website here.</a>
 
-Next.js website using [styled components](https://styled-components.com/) to provide styling and [Getform.io](https://getform.io/) collecting form submissions.
+[Next.js](https://nextjs.org/) website using [styled components](https://styled-components.com/) to provide styling and [Getform.io](https://getform.io/) collecting form submissions.
 
 ## Features
 * Used React framework [Next.js](https://nextjs.org/)
